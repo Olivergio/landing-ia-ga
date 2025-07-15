@@ -1,18 +1,573 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IA para Pequenos Negócios</title>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JTRPCEX7W1"></script>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARE DE SER ESCRAVO DO SEU NEGÓCIO - IA para Pequenos Negócios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.6; 
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .headline { 
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800; 
+            text-align: center; 
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 40px 0 30px 0; 
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subheadline { 
+            font-size: clamp(1.1rem, 3vw, 1.6rem);
+            text-align: center; 
+            color: #34495e;
+            margin-bottom: 50px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+        
+        .highlight { 
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 25px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+        
+        .pain-point { 
+            background: linear-gradient(135deg, #ffebee, #fce4ec);
+            border: none;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 40px 0;
+            font-size: 1.2em;
+            font-style: italic;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1);
+            border-left: 6px solid #e91e63;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pain-point::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #e91e63, #ad1457);
+        }
+        
+        .solution { 
+            background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+            border: none;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.1);
+            border-left: 6px solid #4caf50;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solution::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4caf50, #388e3c);
+        }
+        
+        .solution h2 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+        
+        .solution ul {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+        
+        .solution li {
+            margin: 12px 0;
+            font-size: 1.1em;
+            color: #2e7d32;
+        }
+        
+        .benefits { 
+            background: linear-gradient(135deg, #f3e5f5, #fce4ec);
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(156, 39, 176, 0.1);
+            border: 2px solid rgba(156, 39, 176, 0.1);
+        }
+        
+        .benefits h2 {
+            text-align: center;
+            margin-bottom: 35px;
+            color: #7b1fa2;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+        
+        .benefit-item { 
+            margin: 20px 0;
+            font-size: 1.1em;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            border-left: 5px solid #9c27b0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .benefit-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(156, 39, 176, 0.15);
+        }
+        
+        .benefit-item::before { 
+            content: "🚀 ";
+            font-size: 1.3em;
+            margin-right: 10px;
+        }
+        
+        .testimonial { 
+            background: linear-gradient(135deg, #fff8e1, #fff3e0);
+            border: none;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 25px 0;
+            font-style: italic;
+            box-shadow: 0 10px 30px rgba(255, 152, 0, 0.1);
+            border-left: 6px solid #ff9800;
+            position: relative;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 152, 0, 0.2);
+        }
+        
+        .testimonial::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff9800, #f57c00);
+        }
+        
+        .price-box { 
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            border-radius: 25px;
+            margin: 50px 0;
+            box-shadow: 0 20px 40px rgba(231, 76, 60, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .price-box h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .old-price { 
+            text-decoration: line-through;
+            font-size: 1.4em;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        
+        .new-price { 
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin: 20px 0;
+        }
+        
+        .cta-button { 
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+            padding: 25px 50px;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            display: block;
+            margin: 40px auto;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover { 
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(76, 175, 80, 0.4);
+        }
+        
+        .cta-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
+        .guarantee { 
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border: 2px solid #2196f3;
+            padding: 30px;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.1);
+        }
+        
+        .guarantee h3 {
+            color: #1976d2;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .scarcity { 
+            background: linear-gradient(135deg, #ffcdd2, #f8bbd9);
+            border: 2px solid #e91e63;
+            padding: 20px;
+            text-align: center;
+            margin: 30px 0;
+            font-weight: 700;
+            border-radius: 15px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.2);
+            font-size: 1.1em;
+        }
+        
+        @keyframes pulse { 
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        .emoji { 
+            font-size: 1.8em;
+            margin-right: 10px;
+        }
+        
+        .final-urgency {
+            background: linear-gradient(135deg, #ffebee, #fce4ec);
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+            border-radius: 20px;
+            border: 2px solid #e91e63;
+            box-shadow: 0 15px 35px rgba(233, 30, 99, 0.1);
+        }
+        
+        .final-urgency h2 {
+            color: #c2185b;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .footer-security {
+            text-align: center;
+            margin: 40px 0;
+            color: #666;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .footer-security p {
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 40px;
+            margin: 50px 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .faq-section h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .faq-item {
+            background: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.1);
+        }
+        
+        .faq-item strong {
+            color: #2c3e50;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .faq-item p {
+            color: #5a6c7d;
+            line-height: 1.6;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+                border-radius: 15px;
+            }
+            
+            .pain-point, .solution, .benefits, .testimonial, .price-box, .faq-section {
+                padding: 25px 20px;
+            }
+            
+            .cta-button {
+                padding: 20px 30px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Animações de entrada */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        
+        <div class="headline">
+            PARE DE SER ESCRAVO DO SEU PRÓPRIO NEGÓCIO
+        </div>
+        
+        <div class="subheadline">
+            Automatize <span class="highlight">80% das suas tarefas repetitivas</span> e transforme visitantes em clientes 24h por dia, mesmo dormindo
+        </div>
+
+        <div class="pain-point">
+            <span class="emoji">😤</span> <strong>"Acordo 6h, durmo meia-noite. Respondo cliente no banheiro. Crio post correndo. E ainda assim não consigo vender o suficiente..."</strong>
+            <br><br>
+            Enquanto isso, seus concorrentes estão automatizando TUDO com IA e faturando 3x mais trabalhando metade do tempo.
+            <br><br>
+            <strong>Parece injusto? É porque realmente é.</strong>
+        </div>
+
+        <div class="solution">
+            <h2><span class="emoji">💡</span> MAS E SE EU TE DISSESSE QUE...</h2>
+            <ul>
+                <li>Você pode ter um <strong>vendedor robô</strong> trabalhando 24h por dia</li>
+                <li>Seus e-mails de carrinho abandonado podem <strong>recuperar 40% das vendas perdidas</strong></li>
+                <li>Você pode criar <strong>30 posts por semana</strong> em 10 minutos</li>
+                <li>Seus clientes podem ser atendidos <strong>instantaneamente</strong> a qualquer hora</li>
+                <li>Você pode <strong>prever exatamente</strong> o que vai vender no próximo mês</li>
+            </ul>
+        </div>
+
+        <div class="benefits">
+            <h2><span class="emoji">🎯</span> O QUE VOCÊ VAI DOMINAR:</h2>
+            
+            <div class="benefit-item"><strong>CHATBOTS VENDEDORES:</strong> Crie robôs que vendem enquanto você dorme (Capítulo 4)</div>
+            <div class="benefit-item"><strong>E-MAILS INTELIGENTES:</strong> Recupere 40% dos carrinhos abandonados automaticamente (Capítulo 5)</div>
+            <div class="benefit-item"><strong>CONTEÚDO INFINITO:</strong> Nunca mais fique sem post - gere 500% mais conteúdo (Capítulo 6)</div>
+            <div class="benefit-item"><strong>GARGALOS ASSASSINOS:</strong> Encontre e elimine o que está matando seu lucro (Capítulo 2)</div>
+            <div class="benefit-item"><strong>50+ FERRAMENTAS:</strong> Sua caixa de ferramentas completa de IA (Capítulo 3)</div>
+            <div class="benefit-item"><strong>GESTÃO FINANCEIRA IA:</strong> Controle total dos seus números (Capítulo 7)</div>
+            <div class="benefit-item"><strong>MARKETING AUTOMÁTICO:</strong> Campanhas que se otimizam sozinhas (Capítulo 9)</div>
+            <div class="benefit-item"><strong>PLANO 90 DIAS:</strong> Roadmap completo para implementar tudo (Capítulo 13)</div>
+        </div>
+
+        <div class="testimonial">
+            <span class="emoji">❤️</span> <strong>"Em 60 dias automatizei meu atendimento e DOBREI as vendas. Agora trabalho 3 horas a menos por dia."</strong> - Juliana M., Loja de Roupas
+        </div>
+
+        <div class="testimonial">
+            <span class="emoji">🔥</span> <strong>"Uso IA pra criar conteúdo, responder inbox e gerar campanhas. Meu faturamento subiu 180% em 3 meses."</strong> - Felipe T., Consultor
+        </div>
+
+        <div class="testimonial">
+            <span class="emoji">💪</span> <strong>"Finalmente consegui organizar tudo sozinha. A IA virou minha sócia virtual."</strong> - Mariana C., Confeitaria
+        </div>
+
+        <div class="scarcity">
+            <span class="emoji">⚠️</span> ATENÇÃO: Apenas para os próximos 100 compradores
+        </div>
+
+        <div class="price-box">
+            <h2>OFERTA ESPECIAL DE LANÇAMENTO</h2>
+            <div class="old-price">De R$ 197</div>
+            <div class="new-price">R$ 27</div>
+            <p style="font-size: 1.3em; margin-top: 20px; font-weight: 500;">242 páginas + 38 figuras + Plano de 90 dias</p>
+        </div>
+
+        <button class="cta-button" onclick="window.open('https://libersalus.com.br', '_blank')">
+            🚀 QUERO TRANSFORMAR MEU NEGÓCIO AGORA
+        </button>
+
+        <div class="guarantee">
+            <h3><span class="emoji">🛡️</span> GARANTIA DE 7 DIAS</h3>
+            <p>Não gostou? Devolvemos <strong>100% do seu dinheiro</strong> em até 7 dias. Sem perguntas. Sem enrolação.</p>
+        </div>
+
+        <div class="faq-section">
+            <h2><span class="emoji">❓</span> Perguntas Frequentes</h2>
+            
+            <div class="faq-item">
+                <strong>📌 Preciso entender de tecnologia?</strong>
+                <p>Não. O guia foi feito para pessoas comuns. Tudo é passo a passo, com linguagem simples, como se você estivesse sendo guiado por um amigo.</p>
+            </div>
+            
+            <div class="faq-item">
+                <strong>📌 Funciona para loja física?</strong>
+                <p>Sim! Atendimento, captação de leads, criação de conteúdo e relacionamento com clientes podem ser feitos com IA, mesmo pra negócios locais.</p>
+            </div>
+            
+            <div class="faq-item">
+                <strong>📌 Quando recebo o material?</strong>
+                <p>Imediatamente após a confirmação do pagamento. O acesso é liberado automaticamente para download.</p>
+            </div>
+            
+            <div class="faq-item">
+                <strong>📌 Tem suporte se eu tiver dúvidas?</strong>
+                <p>Sim. Dentro do material você encontra instruções de como tirar dúvidas ou entrar em contato com suporte.</p>
+            </div>
+            
+            <div class="faq-item">
+                <strong>📌 Posso pedir reembolso?</strong>
+                <p>Sim! Você tem 7 dias de garantia. Se não gostar, devolvemos seu dinheiro sem perguntas.</p>
+            </div>
+        </div>
+
+        <div class="final-urgency">
+            <h2><span class="emoji">⏰</span> ÚLTIMA CHANCE</h2>
+            <p style="font-size: 1.3em; margin: 20px 0;">Enquanto você lê isso, seus concorrentes estão implementando IA e ganhando vantagem.</p>
+            <p style="font-size: 1.2em; color: #c2185b; font-weight: 600;"><strong>Não deixe para amanhã o que pode transformar seu negócio hoje.</strong></p>
+        </div>
+
+        <button class="cta-button" onclick="window.open('https://libersalus.com.br', '_blank')">
+            💰 SIM, QUERO AUTOMATIZAR MEU NEGÓCIO
+        </button>
+
+        <div class="footer-security">
+            <p><span class="emoji">🔒</span> Compra 100% segura • <span class="emoji">📱</span> Acesso imediato • <span class="emoji">✅</span> Garantia de 7 dias</p>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0; font-size: 0.9em; color: #888;">
+            <p>© 2025 Paulo Z. Rhiz - Todos os direitos reservados</p>
+        </div>
+
+    </div>
+
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-JTRPCEX7W1');
+        // Animação suave ao carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.benefit-item, .testimonial, .faq-item');
+            elements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+                el.classList.add('fade-in');
+            });
+        });
+        
+        // Efeito hover nos CTAs
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
     </script>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+</body>
 </html>
+
